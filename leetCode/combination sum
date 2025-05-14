@@ -1,0 +1,24 @@
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        sol = []
+        def dp(i, target, ans):
+            if target==0:
+                sol.append(ans)
+                return
+            elif target<0 or i >=len(candidates) or candidates[i]>target:
+                return
+            
+            # pick
+            dp(i, target-candidates[i], ans + [candidates[i]])
+            # not pick
+            dp(i+1, target, ans)
+
+        candidates.sort()
+        dp(0,target, [])
+        return sol
+        
