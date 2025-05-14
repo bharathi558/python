@@ -1,0 +1,18 @@
+class Solution(object):
+    def firstMissingPositive(self, nums):
+        a=1
+        x=[]
+        for i in nums:
+            if i>0:
+                x.append(i)
+        x.sort()
+        for i in x:
+            if i==a:
+                a+=1
+            elif i>a:
+                return a
+        return a
+            
+
+            
+        
