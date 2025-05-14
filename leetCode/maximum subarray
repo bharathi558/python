@@ -1,0 +1,2 @@
+    def maxSubArray(self, nums):
+        return reduce(lambda (g,l),x: (max(g,l+x),max(l+x,0)), nums, (None,0))[0]
